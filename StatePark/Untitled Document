@@ -1,0 +1,55 @@
+About environment set up:
+
+sudo apt-get update
+
+sudo apt-get install default-jdk
+
+sudo apt-get install -y junit4
+
+sudo apt-get install -y tomcat8
+
+cd /opt/tomcat/bin
+
+chmod 744 *sh
+
+./shartup.sh
+
+
+About Build And Run:
+
+cd to the project directory
+
+cd src
+
+javac -cp ../WebContent/WEB-INF/lib/*:. edu/iit/cs445/StateParking/Objects/*.java edu/iit/cs445/StateParking/ObjectsEnum/*.java edu/iit/cs445/StateParking/REST/*.java;
+
+mkdir WebContent/WEB-INF/classes
+
+cp -R src/edu WebContent/WEB-INF/classes
+
+cd WebContent/WEB-INF/classes
+
+find . -name "*.java" -type f -delete
+
+cd ../../../src
+
+find . -name "*.class" -type f -delete
+
+cd ../WebContent
+
+jar cvf ParkAdmin.war WEB-INF
+
+sudo service tomcat8 restart
+
+
+
+About Unit Test:
+cd to the project directory
+
+cd src
+
+javac -cp ../WebContent/WEB-INF/lib/*:/usr/share/java/junit4-4.12.jar:. edu/iit/cs445/StateParking/UnitTest/*.java
+
+java -cp /usr/share/java/junit4-4.12.jar:. org.junit.runner.JUnitCore edu.iit.cs445.StateParking.UnitTest.TestSuit
+
+find . -name "*.class" -type f -delete
