@@ -1,3 +1,7 @@
+Project Description: http://www.cs.iit.edu/~virgil/cs445/mail.fall2018/project/project.html
+
+Project API requirement: http://www.cs.iit.edu/~virgil/cs445/mail.fall2018/project/project-api.html
+
 About environment set up:
 
 sudo apt-get update
